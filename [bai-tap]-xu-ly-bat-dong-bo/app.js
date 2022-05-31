@@ -21,3 +21,4 @@ function checkMoney(value) {
 checkMoney(20000000);
 checkMoney(3330000000);
 checkMoney(330000000);
+checkMoney(430000000);
