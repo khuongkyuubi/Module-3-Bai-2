@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="time-countdown"> Nhập giây</label>
+<input type="number" name="time-countdown" id="time-countdown">
+<button onclick="timeCount()">Submit</button>
+<p id="result"></p>
+</body>
+<script>
+    let timeInput = document.getElementById("time-countdown");
+    let resultOutput = document.getElementById("result");
+
+    function timeCount() {
+        let timeValue = parseInt(timeInput.value);
+         console.log(timeValue)
+        new Promise((resolve, reject) => {
+            if(isNaN(timeValue)) {
+                reject(new Error("Input invalid (Not a Number)"))
+            }
+            setTimeout(() => {
+                resolve("counter finished")
+            }, timeValue * 1000)
+        })
+            .then(result => {
+                resultOutput.innerHTML = result
+            })
+            .catch(err => {
+                resultOutput.innerHTML = err.message;
+            })
+    }
+
+
+</script>
+
+</html>
